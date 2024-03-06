@@ -110,3 +110,14 @@ Input : q not recognized as a double... 	quitting
 
 ```
 
+Take note that `floatx(32,8)` has the properties of a single-precision floating point value by IEEE 754 standard, and `floatx(64,11)` has the properties of a double-precision floating point. 
+
+With `floatx(32,8)`, 7.9e-39 results in a subnormal value for the given `floatx` capacity and this results in information lost, and there is an offset with the initially stored value and resulting value of 9.827471e-39. A subnormal value occurs when the exponent of a value is less than the minimum exponent. On the contrary, 1.27563e+45 results in an overflow, when the exponent of a value is greater than the maximum. When a value is too large for a specific data type, it is represented as `inf`. 
+
+With `floatx(16,4)`, the range of data able to be stored is much less, so many more values cause overflow and result in `inf`. 
+
+`floatx(64,11)` does not result in any loss of information, as expected. This is to make sure both `doubleToFloatx` and `floatxToDouble` work properly. 
+
+
+
+
