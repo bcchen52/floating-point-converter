@@ -31,7 +31,7 @@ int main(int argc,char **argv) {
 		double in=NAN; // NAN defined in math.h
 		if(1==scanf(" %lf",&in)) {
 			floatx fx = doubleToFloatx(in,totBits,expBits);
-			double d = FloatxTodouble(fx,totBits,expBits);
+			double d = floatxTodouble(fx,totBits,expBits);
 			printf("%14.8g = floatx(%d,%d) : %016lx =  %e,\n",in,totBits,expBits,fx,d);
 			
 		} else {

@@ -67,7 +67,7 @@ floatx doubleToFloatx(double val,int totBits,int expBits) {
 	return result; 
 }
 
-double FloatxTodouble(floatx val, int totBits, int expBits){
+double floatxTodouble(floatx val, int totBits, int expBits){
 	assert(totBits<=64);
 	assert((totBits-expBits)>=2);
 
